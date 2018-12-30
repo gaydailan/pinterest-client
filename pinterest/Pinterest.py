@@ -90,7 +90,7 @@ class Pinterest:
         :rtype: dict|None
         """
         if html_page:
-            s = html_page[html_page.rfind('application/json'):]
+            s = html_page[html_page.rfind(b'application/json'):]
             if s and s.rfind(self.username_or_email) > -1:
                 s = s[s.find('{'): s.find('</script>')]
                 s = json.loads(s)
