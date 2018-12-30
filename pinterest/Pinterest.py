@@ -91,7 +91,7 @@ class Pinterest:
         """
         if html_page:
             s = html_page[html_page.rfind(b'application/json'):]
-            if s and s.rfind(self.username_or_email) > -1:
+            if s and s.rfind(b'{}'.format(self.username_or_email)) > -1:
                 s = s[s.find('{'): s.find('</script>')]
                 s = json.loads(s)
                 try:
