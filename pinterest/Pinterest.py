@@ -477,8 +477,8 @@ class Pinterest:
         })
         url = 'https://www.pinterest.com/search/%s/?%s' % (scope, q)
         r = self.get(url=url)
-        html = r.content[r.content.find('application/json'):]
-        html = html[html.find('{'):html.find('</script>')]
+        html = r.content[r.content.find(b'application/json'):]
+        html = html[html.find(b'{'):html.find(b'</script>')]
         search_result = json.loads(html)
         results = []
         try:
