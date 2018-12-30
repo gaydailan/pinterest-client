@@ -483,7 +483,7 @@ class Pinterest:
         results = []
         try:
             if len(search_result['resources']['data']['BaseSearchResource']) > 0:
-                search_resource = search_result['resources']['data']['BaseSearchResource'].values()[0]
+                search_resource = list(search_result['resources']['data']['BaseSearchResource'].values())[0]
                 results = search_resource['data']['results']
                 self.next_book_marks[scope][query] = search_resource['nextBookmark']
         except KeyError:
